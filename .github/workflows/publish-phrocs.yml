@@ -1,0 +1,75 @@
+# phrocs Build Workflow
+#
+# Triggers:
+#   - Manual dispatch with version input → creates phrocs/X.Y.Z semver release + updates Homebrew
+#
+# Source code is checked out from posthog/posthog, binaries are released on this repo (homebrew-tap).
+
+name: Build phrocs
+
+on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: 'Semver version (e.g. 1.0.1)'
+                required: true
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+
+        steps:
+            - name: Checkout posthog/posthog
+              uses: actions/checkout@v6
+              with:
+                  repository: PostHog/posthog
+                  path: posthog
+
+            - name: Checkout homebrew-tap
+              uses: actions/checkout@v6
+              with:
+                  path: homebrew-tap
+
+            - name: Set up Go
+              uses: actions/setup-go@v6
+              with:
+                  go-version: '1.25.5'
+                  cache: true
+                  cache-dependency-path: posthog/tools/phrocs/go.sum
+
+            - name: Build all platform binaries
+              run: cd posthog/tools/phrocs && make build-all VERSION=${{ inputs.version }}
+
+            - name: Generate checksums
+              run: |
+                  cd posthog/tools/phrocs/dist
+                  sha256sum phrocs-* > checksums.txt
+
+            - name: Update Homebrew formula
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  VERSION="${{ inputs.version }}"
+                  SHA256_DARWIN_AMD64=$(grep phrocs-darwin-amd64 posthog/tools/phrocs/dist/checksums.txt | awk '{print $1}')
+                  SHA256_DARWIN_ARM64=$(grep phrocs-darwin-arm64 posthog/tools/phrocs/dist/checksums.txt | awk '{print $1}')
+                  SHA256_LINUX_AMD64=$(grep phrocs-linux-amd64 posthog/tools/phrocs/dist/checksums.txt | awk '{print $1}')
+                  SHA256_LINUX_ARM64=$(grep phrocs-linux-arm64 posthog/tools/phrocs/dist/checksums.txt | awk '{print $1}')
+
+                  sed \
+                      -e "s/VERSION_PLACEHOLDER/${VERSION}/g" \
+                      -e "s/SHA256_DARWIN_AMD64/${SHA256_DARWIN_AMD64}/g" \
+                      -e "s/SHA256_DARWIN_ARM64/${SHA256_DARWIN_ARM64}/g" \
+                      -e "s/SHA256_LINUX_AMD64/${SHA256_LINUX_AMD64}/g" \
+                      -e "s/SHA256_LINUX_ARM64/${SHA256_LINUX_ARM64}/g" \
+                      posthog/tools/phrocs/Formula/phrocs.rb > homebrew-tap/Formula/phrocs.rb
+
+                  cd homebrew-tap
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  mkdir -p Formula
+                  git add Formula/phrocs.rb
+                  git commit -m "Brew formula update for phrocs ${VERSION}" || echo "No changes to commit"
+                  git push
