@@ -26,6 +26,7 @@ jobs:
               uses: actions/checkout@v6
               with:
                   repository: PostHog/posthog
+                  filter: blob:none
                   path: posthog
 
             - name: Checkout homebrew-tap
