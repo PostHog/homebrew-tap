@@ -5,26 +5,26 @@
 class Phrocs < Formula
   desc "PostHog development process runner"
   homepage "https://github.com/PostHog/posthog/tree/master/tools/phrocs"
-  version "1.0.5"
+  version "1.0.6"
 
   on_macos do
     on_intel do
-      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.5/phrocs-darwin-amd64"
-      sha256 "a1201373d233c13cbfb5802900802e9371117103c9a5fa1b9e62bdff1db0336c"
+      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.6/phrocs-darwin-amd64"
+      sha256 "599c487e7285e44dcd8df382b2da0a2c9ec82b5ab0c26b92ce565166e691d2c6"
     end
     on_arm do
-      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.5/phrocs-darwin-arm64"
-      sha256 "24544543c1307aab65beadf336420cbba0e5103b34ed50e44c949ad593bdd948"
+      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.6/phrocs-darwin-arm64"
+      sha256 "d44861dff20624a186c480d6c831bcc731757757eae4d221dcfa2b5453e9861d"
     end
   end
   on_linux do
     on_intel do
-      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.5/phrocs-linux-amd64"
-      sha256 "1f9a98e6a02f2bc15f6204381e54fbe5ec106e25b09313af4dc01ce674becfaf"
+      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.6/phrocs-linux-amd64"
+      sha256 "1d8a8d307c34889f05d81131935593b48e0af60f0e57911fea33eaa232d44317"
     end
     on_arm do
-      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.5/phrocs-linux-arm64"
-      sha256 "b15bc7dad5ad58f57e1591d7fd29cbbfb35126c2f367451a3d4d66c240b9b0c6"
+      url "https://github.com/PostHog/posthog/releases/download/phrocs-1.0.6/phrocs-linux-arm64"
+      sha256 "653e88727fa6a4a5681cecbbf6ace4b689e673e9658c9d5586c418d0f2f4f96e"
     end
   end
 
