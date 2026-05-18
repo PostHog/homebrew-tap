@@ -1,7 +1,8 @@
 # typed: false
 # frozen_string_literal: true
 
-# This file is auto-updated by CI on semver releases. DO NOT EDIT.
+# This file is auto-rendered into PostHog/homebrew-tap by CI on `v*-cli`
+# releases. Edit this template, not the rendered file in the tap.
 #
 # hogland lives in a private repo, so we can't fetch release tarballs via
 # plain HTTPS. Instead we ride on the user's existing `gh auth login` via a
@@ -38,32 +39,32 @@ end
 class Hogland < Formula
   desc "PostHog hogland CLI — manage hogboxes, snapshots, and devboxes"
   homepage "https://github.com/PostHog/hogland"
-  version "0.6.0-cli"
+  version "0.7.0-cli"
 
   depends_on "gh"
 
   on_macos do
     on_intel do
-      url "gh://PostHog/hogland/v0.6.0-cli/hogland_0.6.0-cli_darwin_amd64.tar.gz",
+      url "gh://PostHog/hogland/v0.7.0-cli/hogland_0.7.0-cli_darwin_amd64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "7515a92b388e2a7b0af7d290875bcd8a1e453c436b8caff803272ba932299441"
+      sha256 "93d9497c6a9e89ba0f02d3b6a66d099d8994c886a6886863cb2e91dd19e22ba1"
     end
     on_arm do
-      url "gh://PostHog/hogland/v0.6.0-cli/hogland_0.6.0-cli_darwin_arm64.tar.gz",
+      url "gh://PostHog/hogland/v0.7.0-cli/hogland_0.7.0-cli_darwin_arm64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "91cc5708e8ef8191a7ed8d4c142231e37add91834860671cf889c9cc0e580181"
+      sha256 "6004c7c5b58c7e4a0afadd28a4db88766e8d18921e785b9f9949017f1fb5b915"
     end
   end
   on_linux do
     on_intel do
-      url "gh://PostHog/hogland/v0.6.0-cli/hogland_0.6.0-cli_linux_amd64.tar.gz",
+      url "gh://PostHog/hogland/v0.7.0-cli/hogland_0.7.0-cli_linux_amd64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "5fc00cb5bd97bb97c06030fbaf821fefae9827ea9265567560e25683bdc378d1"
+      sha256 "60b168c7a5f28ae3a3781a1c932b7f08d6b9a68a522277718145bfeb67ce3d08"
     end
     on_arm do
-      url "gh://PostHog/hogland/v0.6.0-cli/hogland_0.6.0-cli_linux_arm64.tar.gz",
+      url "gh://PostHog/hogland/v0.7.0-cli/hogland_0.7.0-cli_linux_arm64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "ad2c266aae0fb912697efdd0e95af3a0786817947c4a5b2ec4f70950efd6b00c"
+      sha256 "80eea1042d0ddf017ba31dc4a45c4a2bd5c08800583c825617d29139e570a464"
     end
   end
 
