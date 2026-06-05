@@ -39,32 +39,32 @@ end
 class Hogland < Formula
   desc "PostHog hogland CLI — manage hogboxes, snapshots, and devboxes"
   homepage "https://github.com/PostHog/hogland"
-  version "1.2.0-cli"
+  version "1.2.1-cli"
 
   depends_on "gh"
 
   on_macos do
     on_intel do
-      url "gh://PostHog/hogland/v1.2.0-cli/hogland_1.2.0-cli_darwin_amd64.tar.gz",
+      url "gh://PostHog/hogland/v1.2.1-cli/hogland_1.2.1-cli_darwin_amd64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "91c497c48fb3686dd68e83ee8a0e8730a48eaf897bf528d82709c6b340fafe93"
+      sha256 "670f66c5910c5386d98c20f52efa824bf6d4cbc422c451a5858b6e36baa6e996"
     end
     on_arm do
-      url "gh://PostHog/hogland/v1.2.0-cli/hogland_1.2.0-cli_darwin_arm64.tar.gz",
+      url "gh://PostHog/hogland/v1.2.1-cli/hogland_1.2.1-cli_darwin_arm64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "75dad908d13a83f0b34645b330714733c67d4d3cf81d09c2ae49c08ff1fb8392"
+      sha256 "58dbd130b605cdc77b5b2e234b5b204b6866895950c73d6873bb9e379b21ac19"
     end
   end
   on_linux do
     on_intel do
-      url "gh://PostHog/hogland/v1.2.0-cli/hogland_1.2.0-cli_linux_amd64.tar.gz",
+      url "gh://PostHog/hogland/v1.2.1-cli/hogland_1.2.1-cli_linux_amd64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "982408d22dd5b5349275319a325c2526cb4a45b2072cf63b96c5b7695e8aa3db"
+      sha256 "a265d5b34aac3b667ee1630aec66e7c234119ba8749e8258d7a8f95e68097d6f"
     end
     on_arm do
-      url "gh://PostHog/hogland/v1.2.0-cli/hogland_1.2.0-cli_linux_arm64.tar.gz",
+      url "gh://PostHog/hogland/v1.2.1-cli/hogland_1.2.1-cli_linux_arm64.tar.gz",
           using: GhCliDownloadStrategy
-      sha256 "70a244b651a2c15315614ed5e25edd74755a2bc64014f607e346ad09a3437f67"
+      sha256 "ec50062e399bd443f8ac2b2e7639b9eaa5e2a72d68216f1bf7e225cbda482339"
     end
   end
 
