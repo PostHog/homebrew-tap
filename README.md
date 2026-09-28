@@ -1,26 +1,34 @@
 # homebrew-tap
 
-Homebrew formulae for PostHog developer tools.
+Homebrew formulae and casks for PostHog developer tools.
 
 ```bash
 brew install posthog/tap/phrocs    # PostHog dev process runner
 brew install posthog/tap/hogland   # hogland CLI (hogboxes, snapshots, devboxes)
+brew install --cask posthog/tap/postpile   # PostPile, macOS app for GitHub PR notifications (alpha)
 ```
+
+`postpile` is an unnotarized alpha (ad-hoc signed, Apple silicon only). After
+install, run `xattr -dr com.apple.quarantine /Applications/PostPile.app` or
+allow it once under System Settings > Privacy & Security. It needs `gh` and
+`claude` installed and logged in.
 
 `hogland` still lives in a private repo, so its formula shells out to `gh` —
 run `gh auth login` once and you're good.
 
-## How formulae get updated
+## How formulae and casks get updated
 
-Both formulae are **rendered into this repo by CI in their source repo**, not
-edited here. Don't hand-edit a `Formula/*.rb` file expecting the change to
+All of them are **rendered into this repo by CI in their source repo**, not
+edited here. Don't hand-edit a `Formula/*.rb` or `Casks/*.rb` file expecting the change to
 stick — the next release will overwrite it.
 
-| Formula | Source repo | Workflow | Template |
+| Formula / cask | Source repo | Workflow | Template |
 |---------|-------------|----------|----------|
 | `phrocs` | `PostHog/posthog` | `.github/workflows/build-phrocs.yml` | `tools/phrocs/Formula/phrocs.rb` |
 | `hogland` | `PostHog/hogland` | `.github/workflows/release.yml` | `homebrew/hogland.rb.tmpl` |
+| `postpile` (cask) | `PostHog/postpile` | `.github/workflows/release.yml` | `homebrew/postpile.rb.tmpl` |
 
 Auth: source-repo workflows mint a scoped install token via the org-level
-GitHub App `GH_APP_HOMEBREW_TAP_RELEASER` (client id + private key live as
-selected-repo org secrets). No PATs.
+GitHub App `GH_APP_HOMEBREW_TAP_RELEASER` (app id + private key live as
+secrets in each source repo's `homebrew-tap` environment, limited to
+release tags). No PATs.
