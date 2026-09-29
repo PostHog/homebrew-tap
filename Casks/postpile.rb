@@ -10,8 +10,8 @@
 # signed and notarized build, and only the two marker lines for an ad-hoc one.
 # Don't write the marker names anywhere else in this file.
 cask "postpile" do
-  version "0.2.1"
-  sha256 "f22779b365d94fbc245dac72cbb4a3630818bbdf0974afde2d3fcbebc887686e"
+  version "0.3.0"
+  sha256 "7547b2bd00024e8b5325ffb02abee0ae8539aa1dca16a96c9566391ff026d6d0"
 
   url "https://github.com/PostHog/postpile/releases/download/v#{version}/PostPile-#{version}-mac-arm64.zip"
   name "PostPile"
@@ -22,6 +22,8 @@ cask "postpile" do
   depends_on macos: :monterey
 
   app "PostPile.app"
+  # Read-only MCP server for other agents; the script follows this symlink back into the app.
+  binary "#{appdir}/PostPile.app/Contents/Resources/postpile-mcp"
 
   zap trash: [
     "~/.config/postpile",
@@ -37,6 +39,10 @@ cask "postpile" do
 
       brew install gh && gh auth login
       curl -fsSL https://claude.ai/install.sh | bash && claude auth login
+
+    Let other agents ask PostPile about your PRs (read-only):
+
+      claude mcp add postpile -- postpile-mcp
 
     Update later with: brew upgrade --cask postpile
   EOS
