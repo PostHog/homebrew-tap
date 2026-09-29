@@ -4,9 +4,14 @@
 # Rendered into PostHog/homebrew-tap as Casks/postpile.rb by
 # .github/workflows/release.yml on v* tags. Edit this template, not the
 # rendered file in the tap; the next release overwrites it.
+#
+# The first block in the caveats, between its two marker lines, is for ad-hoc
+# signed builds only. The workflow deletes the whole block for a Developer ID
+# signed and notarized build, and only the two marker lines for an ad-hoc one.
+# Don't write the marker names anywhere else in this file.
 cask "postpile" do
-  version "0.1.0-alpha.0"
-  sha256 "0fe230ed5c4e4f819c3c4a02ee73b894166bdcc22b01907c19e8b1fd40b59d42"
+  version "0.2.0"
+  sha256 "81afe88deb462a0a2c6746bd096b0d0f3e400a61678d49da8b445e41337ff4c0"
 
   url "https://github.com/PostHog/postpile/releases/download/v#{version}/PostPile-#{version}-mac-arm64.zip"
   name "PostPile"
@@ -27,18 +32,12 @@ cask "postpile" do
   ]
 
   caveats <<~EOS
-    PostPile is an alpha and the app is not notarized (ad-hoc signed only),
-    so macOS blocks the first open. Either clear the quarantine flag:
-
-      xattr -dr com.apple.quarantine /Applications/PostPile.app
-
-    or try to open it once, then allow it in System Settings > Privacy &
-    Security > Open Anyway (on older macOS: right-click the app > Open).
-
     PostPile needs the GitHub CLI and the Claude Code CLI, both installed
     and logged in:
 
       brew install gh && gh auth login
-      brew install --cask claude-code && claude
+      curl -fsSL https://claude.ai/install.sh | bash && claude auth login
+
+    Update later with: brew upgrade --cask postpile
   EOS
 end
