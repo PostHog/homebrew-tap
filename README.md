@@ -8,10 +8,9 @@ brew install posthog/tap/hogland   # hogland CLI (hogboxes, snapshots, devboxes)
 brew install --cask posthog/tap/postpile   # PostPile, macOS app for GitHub PR notifications (alpha)
 ```
 
-`postpile` is an unnotarized alpha (ad-hoc signed, Apple silicon only). After
-install, run `xattr -dr com.apple.quarantine /Applications/PostPile.app` or
-allow it once under System Settings > Privacy & Security. It needs `gh` and
-`claude` installed and logged in.
+`postpile` is an alpha for Apple silicon, signed and notarized. It needs `gh`
+and `claude` installed and logged in. From 0.16.0 it updates itself (the cask
+says `auto_updates true`); `brew upgrade --cask postpile` works too.
 
 `hogland` still lives in a private repo, so its formula shells out to `gh` —
 run `gh auth login` once and you're good.
