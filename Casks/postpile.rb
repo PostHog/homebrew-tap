@@ -10,14 +10,17 @@
 # signed and notarized build, and only the two marker lines for an ad-hoc one.
 # Don't write the marker names anywhere else in this file.
 cask "postpile" do
-  version "0.15.2"
-  sha256 "d4ece2fffb1b109558e030d98a0bbe727e944be6630cd159a03b6cac2dc8fbd9"
+  version "0.16.0"
+  sha256 "047624ba4e49a31572cd57e3ee4bfe46097b013eeb77edf9224fe2545580be34"
 
   url "https://github.com/PostHog/postpile/releases/download/v#{version}/PostPile-#{version}-mac-arm64.zip"
   name "PostPile"
   desc "Turns GitHub PR notifications into agent-maintained topics"
   homepage "https://github.com/PostHog/postpile"
 
+  # The app downloads and installs new releases itself (DESIGN.md "Self-update"),
+  # so brew leaves an app that is already newer than this cask alone.
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :monterey
 
@@ -44,6 +47,7 @@ cask "postpile" do
 
       claude mcp add postpile -- postpile-mcp
 
-    Update later with: brew upgrade --cask postpile
+    PostPile updates itself: when a new release is downloaded, the title bar
+    offers a restart. brew upgrade --cask postpile works too.
   EOS
 end
