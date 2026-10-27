@@ -10,8 +10,8 @@
 # signed and notarized build, and only the two marker lines for an ad-hoc one.
 # Don't write the marker names anywhere else in this file.
 cask "postpile" do
-  version "0.28.2"
-  sha256 "694924f888274a6d1d146d740f8d0cd790eea79db7e346741d442359dd476525"
+  version "0.28.3"
+  sha256 "1f09bf23ae0c8e93547b1a735fdd73129d681e298e7fcc75fafc0dc23fea99fd"
 
   url "https://github.com/PostHog/postpile/releases/download/v#{version}/PostPile-#{version}-mac-arm64.zip"
   name "PostPile"
