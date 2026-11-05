@@ -8,8 +8,8 @@
 # The workflow deletes the whole block for a Developer ID signed and notarized build, and only the
 # two marker lines for an ad-hoc one. Don't write the marker names anywhere else in this file.
 cask "sizeberg" do
-  version "0.1.3"
-  sha256 "2a6bc96f69372b652f9997650c5e10bfa6150569a6ce5a4a722c08983f7e13e1"
+  version "0.1.4"
+  sha256 "e7d4bbbbc437e8ceb40dc8f6cc17e0846b1d006e01eed9d44d5af02c0193ec90"
 
   url "https://github.com/PostHog/sizeberg/releases/download/v#{version}/SizeBerg-#{version}-mac-arm64.zip"
   name "SizeBerg"
@@ -20,7 +20,7 @@ cask "sizeberg" do
   # than this cask alone.
   auto_updates true
   depends_on arch: :arm64
-  depends_on macos: ">= :tahoe"
+  depends_on macos: ">= :sequoia"
 
   app "SizeBerg.app"
   # The CLI lives inside the app, so both come from one download.
