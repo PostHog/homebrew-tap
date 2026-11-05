@@ -8,8 +8,8 @@
 # The workflow deletes the whole block for a Developer ID signed and notarized build, and only the
 # two marker lines for an ad-hoc one. Don't write the marker names anywhere else in this file.
 cask "sizeberg" do
-  version "0.1.2"
-  sha256 "f0442b02ee9b2d36fe8da68e87312a138b19ea112dc060265988d72fba26cca2"
+  version "0.1.3"
+  sha256 "2a6bc96f69372b652f9997650c5e10bfa6150569a6ce5a4a722c08983f7e13e1"
 
   url "https://github.com/PostHog/sizeberg/releases/download/v#{version}/SizeBerg-#{version}-mac-arm64.zip"
   name "SizeBerg"
@@ -41,9 +41,8 @@ cask "sizeberg" do
   ]
 
   caveats <<~EOS
-    SizeBerg scans the folders in ~/workspace. Point it elsewhere with:
-
-      sizeberg --root ~/code
+    SizeBerg finds the folders in your home folder that hold git repositories.
+    If they are in Documents, Desktop or Downloads, macOS asks once for access.
 
     Remove its scan cache and settings too with: brew uninstall --zap sizeberg
   EOS
