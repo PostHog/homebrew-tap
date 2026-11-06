@@ -8,8 +8,8 @@
 # The workflow deletes the whole block for a Developer ID signed and notarized build, and only the
 # two marker lines for an ad-hoc one. Don't write the marker names anywhere else in this file.
 cask "sizeberg" do
-  version "0.1.5"
-  sha256 "8ac4cc774b7a37f5da663c6bfc1070d90724626e3c410caf6d491592d2f0179b"
+  version "0.1.6"
+  sha256 "9981039a30e300213b6f3e32782faf42d11aaedb5b35fd7a2c7b7ea31cc4ffe1"
 
   url "https://github.com/PostHog/sizeberg/releases/download/v#{version}/SizeBerg-#{version}-mac-arm64.zip"
   name "SizeBerg"
