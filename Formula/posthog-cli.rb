@@ -1,33 +1,33 @@
 class PosthogCli < Formula
   desc "The command line interface for PostHog 🦔"
   homepage "https://posthog.com"
-  version "0.19.1"
+  version "0.19.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://releases.posthog.com/posthog-cli/v0.19.1/posthog-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "e63b95cb1c746e6e3aeeed53b1418cb1b3db38851605725e71a067dceb0e7155"
-      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.1/posthog-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "e63b95cb1c746e6e3aeeed53b1418cb1b3db38851605725e71a067dceb0e7155"
+      url "https://releases.posthog.com/posthog-cli/v0.19.2/posthog-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "39cd9bffef7f321edc6504c90c260d00e349849bd4d9e9bd735c7a4c38b0a38c"
+      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.2/posthog-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "39cd9bffef7f321edc6504c90c260d00e349849bd4d9e9bd735c7a4c38b0a38c"
     end
     if Hardware::CPU.intel?
-      url "https://releases.posthog.com/posthog-cli/v0.19.1/posthog-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "c5029c09e88975c0733127ee7b9c1e310cd8ed692a91276c524862e3c92e4f81"
-      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.1/posthog-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "c5029c09e88975c0733127ee7b9c1e310cd8ed692a91276c524862e3c92e4f81"
+      url "https://releases.posthog.com/posthog-cli/v0.19.2/posthog-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "d10f615e1cb773fbd1719803493394ff91a7dc870f3adfab1ebcc0ebea062452"
+      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.2/posthog-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "d10f615e1cb773fbd1719803493394ff91a7dc870f3adfab1ebcc0ebea062452"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://releases.posthog.com/posthog-cli/v0.19.1/posthog-cli-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "803e9ce7e55e547b0e8e379355c0b68002b9631c75f6fd560e00c29fed67e37a"
-      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.1/posthog-cli-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "803e9ce7e55e547b0e8e379355c0b68002b9631c75f6fd560e00c29fed67e37a"
+      url "https://releases.posthog.com/posthog-cli/v0.19.2/posthog-cli-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "686d713da3727cfe3872a23801efd62936172d03afc7db54676dec82617226f5"
+      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.2/posthog-cli-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "686d713da3727cfe3872a23801efd62936172d03afc7db54676dec82617226f5"
     end
     if Hardware::CPU.intel?
-      url "https://releases.posthog.com/posthog-cli/v0.19.1/posthog-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f352b5c609dd96947874e06f9dd5280c4bb61b8505a22ccb6e2018edc0e0f1f1"
-      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.1/posthog-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f352b5c609dd96947874e06f9dd5280c4bb61b8505a22ccb6e2018edc0e0f1f1"
+      url "https://releases.posthog.com/posthog-cli/v0.19.2/posthog-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "546ca169c578fe019c470a8719f2c0f66a0d23b485cd9b47bfbae86ecc077afc"
+      mirror "https://github.com/PostHog/posthog/releases/download/posthog-cli/v0.19.2/posthog-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "546ca169c578fe019c470a8719f2c0f66a0d23b485cd9b47bfbae86ecc077afc"
     end
   end
   license "MIT"
