@@ -2,40 +2,42 @@
 class Hog < Formula
   desc "PostHog command line"
   homepage "https://posthog.com"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://releases.posthog.com/hog/v0.1.0/hog-darwin-arm64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.1.0/hog-darwin-arm64.tar.gz"
-      sha256 "c60155637a6c175eac228eba659a5fa7ab8922d9f1c4994c5dbe8ba609650c53"
+      url "https://releases.posthog.com/hog/v0.2.0/hog-darwin-arm64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.0/hog-darwin-arm64.tar.gz"
+      sha256 "ca302655778f918146eb286092948d4b6fcedfda9ba41d472752bc174745a2cf"
     end
     on_intel do
-      url "https://releases.posthog.com/hog/v0.1.0/hog-darwin-x64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.1.0/hog-darwin-x64.tar.gz"
-      sha256 "1f9a35bfc0d37c8d35e4362357f0caa2f0df8f603321e621ad4668e1ff95f80d"
+      url "https://releases.posthog.com/hog/v0.2.0/hog-darwin-x64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.0/hog-darwin-x64.tar.gz"
+      sha256 "6095ac59f53f3c70f3a1d667d93d1184cd29e0192a2ab93b7ba7b8481e144a68"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://releases.posthog.com/hog/v0.1.0/hog-linux-arm64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.1.0/hog-linux-arm64.tar.gz"
-      sha256 "c3dd9ea837775981280b174d5d9ed8b6d7100a37b6039e7c6939a7a6d9e7ebd4"
+      url "https://releases.posthog.com/hog/v0.2.0/hog-linux-arm64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.0/hog-linux-arm64.tar.gz"
+      sha256 "67ebd2ef18b89df7fc857764ff89e7249dfc518975500bff2c891fac9f5cbe26"
     end
     on_intel do
-      url "https://releases.posthog.com/hog/v0.1.0/hog-linux-x64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.1.0/hog-linux-x64.tar.gz"
-      sha256 "811999531f50e991cbb3f19944e2d18a050dcca5880db7924c7456f7fa374565"
+      url "https://releases.posthog.com/hog/v0.2.0/hog-linux-x64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.0/hog-linux-x64.tar.gz"
+      sha256 "9c7a86cb7b5ab8188f95fc7dd28fdec38ad1832e903f94c9091b1f34290b5828"
     end
   end
 
   def install
-    bin.install "hog"
+    bin.install Dir["*"]
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/hog --version")
+    with_env(HOG_CHECK_INSTALL: "1") do
+      assert_match version.to_s, shell_output("#{bin}/hog --version")
+    end
   end
 end
