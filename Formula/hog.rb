@@ -2,32 +2,32 @@
 class Hog < Formula
   desc "PostHog command line"
   homepage "https://posthog.com"
-  version "0.2.1"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://releases.posthog.com/hog/v0.2.1/hog-darwin-arm64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.1/hog-darwin-arm64.tar.gz"
-      sha256 "e8629782440abd9756a8e976a50ab72ef891d0f559febf16e25cb7ff241e1572"
+      url "https://releases.posthog.com/hog/v0.3.0/hog-darwin-arm64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.3.0/hog-darwin-arm64.tar.gz"
+      sha256 "cb7caf2f18d5e9200ab840e8b07c3b4f5d98364a2ab0eac047500afd6d66c515"
     end
     on_intel do
-      url "https://releases.posthog.com/hog/v0.2.1/hog-darwin-x64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.1/hog-darwin-x64.tar.gz"
-      sha256 "26d940aa7a7f4567bc3854d388da54facbba5abd01a5ce52510db7f8c56fed44"
+      url "https://releases.posthog.com/hog/v0.3.0/hog-darwin-x64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.3.0/hog-darwin-x64.tar.gz"
+      sha256 "3180c2b064fe5d2b325964d70e0bef7e706411ef7fe137d979a68163adabc5da"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://releases.posthog.com/hog/v0.2.1/hog-linux-arm64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.1/hog-linux-arm64.tar.gz"
-      sha256 "99c4e71a2e86ca1223addbbc45d242df1633dc8a310ce160105ce73b6b102e78"
+      url "https://releases.posthog.com/hog/v0.3.0/hog-linux-arm64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.3.0/hog-linux-arm64.tar.gz"
+      sha256 "35a0a6de2dfd476e2e594002fa7eb5b90d3b2a2ec578983075706df1c1b5b038"
     end
     on_intel do
-      url "https://releases.posthog.com/hog/v0.2.1/hog-linux-x64.tar.gz"
-      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.2.1/hog-linux-x64.tar.gz"
-      sha256 "d1cb7e6fe8eadd09b755506b7de570bdc7b7aba42c74ee750c9df42e3a5a11e1"
+      url "https://releases.posthog.com/hog/v0.3.0/hog-linux-x64.tar.gz"
+      mirror "https://github.com/PostHog/posthog/releases/download/hog/v0.3.0/hog-linux-x64.tar.gz"
+      sha256 "9dff37a41ec5bf947c190fc4760e95a051be9ea7744eb3d0f4a4e7be695674bc"
     end
   end
 
